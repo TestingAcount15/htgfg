@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: #121212; 
+            background: linear-gradient(135deg, #000000, #2c2c2c); 
             color: #fff;
             margin: 0;
             padding: 0;
@@ -17,73 +17,105 @@
             height: 100vh;
             text-align: center;
             flex-direction: column;
+            overflow: hidden;
+            animation: fadeInPage 2s ease-out;
         }
-
         .container {
             max-width: 100%;
             padding: 20px;
             box-sizing: border-box;
             text-align: center;
+            animation: slideUp 1.5s ease-out;
         }
-
         h1 {
-            font-size: 30px;
-            margin-bottom: 30px;
-            color: #e53935;
-            letter-spacing: 1px;
+            font-size: 45px;
+            margin-bottom: 40px;
+            color: #ff1744;
+            letter-spacing: 3px;
             font-weight: 600;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            transition: transform 0.4s ease;
         }
-
+        h1:hover {
+            transform: translateY(-10px) scale(1.05);
+            color: #ff4081;
+        }
         .download-button {
-            background-color: #e53935;
+            background-color: #ff1744;
             color: #fff;
             padding: 20px 40px;
             font-size: 18px;
             text-decoration: none;
             border-radius: 50px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             display: inline-block;
-            transition: background-color 0.3s, transform 0.3s;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
         }
-
         .download-button:hover {
-            background-color: #d32f2f;
-            transform: scale(1.05);
+            background-color: #d50000;
+            transform: scale(1.1) rotate(3deg);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
-
         .download-button:active {
-            transform: scale(1);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        transform: scale(1) rotate(0);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .download-button:before {
+        content: '⏳';
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        font-size: 32px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        }
+        .download-button:hover:before {
+        opacity: 1;
+        animation: spin 1.5s infinite;
         }
 
-        @media screen and (max-width: 600px) {
-            h1 {
-                font-size: 26px;
-            }
-
-            .download-button {
-                font-size: 16px;
-                padding: 16px 30px;
-            }
+      @keyframes spin {
+         0% { transform: rotate(0deg); }
+         100% { transform: rotate(360deg); }
+      }
+     @keyframes fadeInPage {
+        0% { opacity: 0; transform: translateY(50px); }
+       100% { opacity: 1; transform: translateY(0); }
         }
 
-        @media screen and (min-width: 768px) {
-            .container {
-                width: 80%;
-                max-width: 600px;
-            }
-
-            h1 {
-                font-size: 36px;
-            }
+    @keyframes slideUp {
+        0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
         }
+     @media screen and (max-width: 600px) {
+         h1 {
+         font-size: 32px;
+        }
+    .download-button {
+    font-size: 16px;
+     padding: 18px 35px;
+    }
+}
+ @media screen and (min-width: 768px) {
+      .container {
+          width: 80%;
+            max-width: 600px;
+         }
+          h1 {
+          font-size: 50px;
+         }
+    }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Download Double Ditto Game</h1>
-        <a href="https://github.com/TestingAcount15/htgfg/raw/main/double-ditto.apk" class="download-button" download>Click here to download</a>
-    </div>
+<div class="container">
+<h1>Download Double Ditto Scoring Sheet</h1>
+<a href="https://github.com/TestingAcount15/htgfg/raw/main/double-ditto.apk" class="download-button" download>Click to Download</a>
+</div>
 </body>
 </html>
